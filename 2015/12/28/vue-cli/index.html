@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
         <!-- <link href='http://fonts.googleapis.com/css?family=Dosis:300,500&text=Vue.js' rel='stylesheet' type='text/css'> -->
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
             window.PAGE_TYPE = ""
@@ -88,6 +89,10 @@
         <ul>
         
             <li>
+                <a href="/2016/02/06/common-gotchas/" class="sidebar-link">Common Beginner Gotchas</a>
+            </li>
+        
+            <li>
                 <a href="/2015/12/28/vue-cli/" class="sidebar-link current">Announcing vue-cli</a>
             </li>
         
@@ -146,7 +151,7 @@
 <li><p><a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="external">webpack-simple</a> - A simple Webpack + vue-loader setup for quick prototyping.</p>
 </li>
 </ul>
-<h3 id="Bring_Your_Own_Setup">Bring Your Own Setup</h3><p>If you are not happy with the offical templates, you can fork these templates, modify them to fit your specific needs (or even create your own from scratch), and use them via <code>vue-cli</code> too, because <code>vue-cli</code> can work directly on GitHub repos:</p>
+<h3 id="Bring_Your_Own_Setup">Bring Your Own Setup</h3><p>If you are not happy with the official templates, you can fork these templates, modify them to fit your specific needs (or even create your own from scratch), and use them via <code>vue-cli</code> too, because <code>vue-cli</code> can work directly on GitHub repos:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue init username/repo my-project</span><br></pre></td></tr></table></figure>
 <h3 id="Vue_Components_Everywhere">Vue Components Everywhere</h3><p>There are different templates for different purposes: simple setups for quick prototyping, and full-featured setups for ambitious applications. A common feature among these templates though, is that they all support <code>*.vue</code> single file components. This means any third party Vue components written as valid <code>*.vue</code> files can be shared among projects using these setups, and simply be distributed over NPM - let’s create more reusable components!</p>
 
@@ -154,6 +159,7 @@
 
                 
             </div>
+            <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
             <script src="/js/smooth-scroll.min.js"></script>
             <script src="/js/common.js"></script>
         
@@ -164,5 +170,12 @@
                 FastClick.attach(document.body);
             }, false);
         </script>
+
+        <!-- 打赏 -->
+        <div id="qrcode" class="hidden">
+            <h2>微信扫一扫，支持 Vue.js :)</h2>
+            <img src="/images/qrcode.png">
+        </div>
+        <script src="/js/money.js"></script>
     </body>
 </html>

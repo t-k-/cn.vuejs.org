@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
         <!-- <link href='http://fonts.googleapis.com/css?family=Dosis:300,500&text=Vue.js' rel='stylesheet' type='text/css'> -->
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
             window.PAGE_TYPE = ""
@@ -84,7 +85,7 @@
     </div>
     <p class="desc">数据驱动的组件，为现代化的 Web 界面而生</p>
     <p class="buttons">
-      <a href="/guide/installation.html" class="button">安装 v1.0.13</a>
+      <a href="/guide/installation.html" class="button">安装 v1.0.16</a>
     </p>
     <ul id="social">
       <li><a href="https://twitter.com/vuejs" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @vuejs</a></li>
@@ -92,8 +93,8 @@
     allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
       <li id="donate">
         <span class="wrapper">
-          <img src="/images/paypal.png">
-          <a href="https://www.paypal.me/evanyou" target="_blank">Donate</a>
+          <img src="/images/weixinpay.png">
+          <a>打个赏</a>
         </span>
       </li>
     </ul>
@@ -196,7 +197,7 @@
 <div id="footer">
   <a class="start" href="/guide/index.html">立刻上手</a>
   <p>以 <a href="http://opensource.org/licenses/MIT" target="_blank">MIT 许可证</a>发布</p>
-  <p>Copyright (c) 2015 <a href="http://evanyou.me" target="_blank">Evan You</a></p>
+  <p>Copyright (c) 2016 <a href="http://evanyou.me" target="_blank">Evan You</a></p>
 </div>
 
 <!-- Twitter follow button script -->
@@ -204,6 +205,7 @@
 
                 
             </div>
+            <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
             <script src="/js/smooth-scroll.min.js"></script>
             <script src="/js/common.js"></script>
         
@@ -214,5 +216,12 @@
                 FastClick.attach(document.body);
             }, false);
         </script>
+
+        <!-- 打赏 -->
+        <div id="qrcode" class="hidden">
+            <h2>微信扫一扫，支持 Vue.js :)</h2>
+            <img src="/images/qrcode.png">
+        </div>
+        <script src="/js/money.js"></script>
     </body>
 </html>

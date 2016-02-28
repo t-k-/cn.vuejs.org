@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
         <!-- <link href='http://fonts.googleapis.com/css?family=Dosis:300,500&text=Vue.js' rel='stylesheet' type='text/css'> -->
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
             window.PAGE_TYPE = "api"
@@ -97,9 +98,9 @@
             
         </ul>
         <div id="donate">
-            <span class="wrapper" style="width: 110px">
-              <img src="/images/paypal.png">
-              <a href="https://www.paypal.me/evanyou" target="_blank">Buy Me Coffee</a>
+            <span class="wrapper" style="width: 72px">
+              <img src="/images/weixinpay.png">
+              <a>打个赏</a>
             </span>
         </div>
     </div>
@@ -180,7 +181,9 @@
 <p>1.0.8 添加。开启这个选项后，Vue 可以转换和观察由  <code>Object.defineProperty</code> 定义的 getters/setter。默认关闭，因为会付出一些性能代价，并且不是常用功能。</p>
 </li>
 </ul>
-<h2 id="全局_API">全局 API</h2><h3 id="Vue-extend(_options_)">Vue.extend( options )</h3><ul>
+<h2 id="全局_API">全局 API</h2><h3 id="Vue-extend">Vue.extend( options )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{Object} options</code></li>
@@ -190,17 +193,19 @@
 <p>创建基础 Vue 构造器的“子类”。参数是一个对象，包含组件选项。</p>
 <p>这里要注意的特例是 <code>el</code> 和 <code>data</code> 选项—— 在 <code>Vue.extend()</code> 中它们必须是函数。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"mount-point"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建可复用的构造器</span></span><br><span class="line"><span class="keyword">var</span> Profile = Vue.extend(&#123;</span><br><span class="line">  template: <span class="string">'&lt;p&gt;&#123;&#123;firstName&#125;&#125; &#123;&#123;lastName&#125;&#125; aka &#123;&#123;alias&#125;&#125;&lt;/p&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 创建一个 Profile 实例</span></span><br><span class="line"><span class="keyword">var</span> profile = <span class="keyword">new</span> Profile(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: <span class="string">'Walter'</span>,</span><br><span class="line">    lastName: <span class="string">'White'</span>,</span><br><span class="line">    alias: <span class="string">'Heisenberg'</span></span><br><span class="line">  &#125;  </span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 挂载到元素上</span></span><br><span class="line">profile.$mount(<span class="string">'#mount-point'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建可复用的构造器</span></span><br><span class="line"><span class="keyword">var</span> Profile = Vue.extend(&#123;</span><br><span class="line">  template: <span class="string">'&lt;p&gt;&#123;&#123;firstName&#125;&#125; &#123;&#123;lastName&#125;&#125; aka &#123;&#123;alias&#125;&#125;&lt;/p&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 创建一个 Profile 实例</span></span><br><span class="line"><span class="keyword">var</span> profile = <span class="keyword">new</span> Profile(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: <span class="string">'Walter'</span>,</span><br><span class="line">    lastName: <span class="string">'White'</span>,</span><br><span class="line">    alias: <span class="string">'Heisenberg'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 挂载到元素上</span></span><br><span class="line">profile.$mount(<span class="string">'#mount-point'</span>)</span><br></pre></td></tr></table></figure>
 <p>结果：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>Walter White aka Heisenberg<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>另见：</strong> <a href="/guide/components.html">组件</a></p>
 </li>
 </ul>
-<h3 id="Vue-nextTick(_callback_)">Vue.nextTick( callback )</h3><ul>
+<h3 id="Vue-nextTick">Vue.nextTick( callback )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
-<li><code>{Functon} callback</code></li>
+<li><code>{Function} callback</code></li>
 </ul>
 </li>
 <li><p><strong>用法：</strong></p>
@@ -210,7 +215,9 @@
 <li><p><strong>另见：</strong> <a href="/guide/reactivity.html#异步更新队列">异步更新队列</a></p>
 </li>
 </ul>
-<h3 id="Vue-set(_object,_key,_value_)">Vue.set( object, key, value )</h3><ul>
+<h3 id="Vue-set">Vue.set( object, key, value )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{Object} object</code></li>
@@ -226,7 +233,9 @@
 <li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应</a></p>
 </li>
 </ul>
-<h3 id="Vue-delete(_object,_key_)">Vue.delete( object, key )</h3><ul>
+<h3 id="Vue-delete">Vue.delete( object, key )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{Object} object</code></li>
@@ -239,7 +248,9 @@
 <li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应</a></p>
 </li>
 </ul>
-<h3 id="Vue-directive(_id,_[definition]_)">Vue.directive( id, [definition] )</h3><ul>
+<h3 id="Vue-directive">Vue.directive( id, [definition] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} id</code></li>
@@ -253,7 +264,9 @@
 <li><p><strong>另见：</strong> <a href="/guide/custom-directive.html">自定义指令</a></p>
 </li>
 </ul>
-<h3 id="Vue-elementDirective(_id,_[definition]_)">Vue.elementDirective( id, [definition] )</h3><ul>
+<h3 id="Vue-elementDirective">Vue.elementDirective( id, [definition] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} id</code></li>
@@ -267,7 +280,9 @@
 <li><p><strong>另见：</strong> <a href="/guide/custom-directive.html#元素指令">元素指令</a></p>
 </li>
 </ul>
-<h3 id="Vue-filter(_id,_[definition]_)">Vue.filter( id, [definition] )</h3><ul>
+<h3 id="Vue-filter">Vue.filter( id, [definition] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} id</code></li>
@@ -281,7 +296,9 @@
 <li><p><strong>另见：</strong> <a href="/guide/custom-filter.html">自定义过滤器</a></p>
 </li>
 </ul>
-<h3 id="Vue-component(_id,_[definition]_)">Vue.component( id, [definition] )</h3><ul>
+<h3 id="Vue-component">Vue.component( id, [definition] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} id</code></li>
@@ -295,7 +312,9 @@
 <li><p><strong>另见：</strong> <a href="/guide/components.html">组件</a>.</p>
 </li>
 </ul>
-<h3 id="Vue-transition(_id,_[hooks]_)">Vue.transition( id, [hooks] )</h3><ul>
+<h3 id="Vue-transition">Vue.transition( id, [hooks] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} id</code></li>
@@ -309,7 +328,9 @@
 <li><p><strong>另见：</strong> <a href="/guide/transitions.html">过渡</a>.</p>
 </li>
 </ul>
-<h3 id="Vue-partial(_id,_[partial]_)">Vue.partial( id, [partial] )</h3><ul>
+<h3 id="Vue-partial">Vue.partial( id, [partial] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} id</code></li>
@@ -323,7 +344,9 @@
 <li><p><strong>另见：</strong> <a href="#partial">特殊元素 - &lt;partial&gt;</a>。</p>
 </li>
 </ul>
-<h3 id="Vue-use(_plugin,_[options]_)">Vue.use( plugin, [options] )</h3><ul>
+<h3 id="Vue-use">Vue.use( plugin, [options] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{Object | Function} plugin</code></li>
@@ -336,7 +359,9 @@
 <li><p><strong>另见：</strong> <a href="/guide/plugins.html">插件</a>.</p>
 </li>
 </ul>
-<h3 id="Vue-mixin(_mixin_)">Vue.mixin( mixin )</h3><ul>
+<h3 id="Vue-mixin">Vue.mixin( mixin )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{Object} mixin</code></li>
@@ -351,11 +376,12 @@
 <h2 id="选项_/_数据">选项 / 数据</h2><h3 id="data">data</h3><ul>
 <li><p><strong>类型：</strong> <code>Object | Function</code></p>
 </li>
-<li><p><strong>限制：</strong> 在 <code>Vue.extend()</code> 中只能是函数。</p>
+<li><p><strong>限制：</strong> 在组件定义中只能是函数。</p>
 </li>
 <li><p><strong>详细：</strong></p>
 <p>Vue 实例的数据对象。Vue.js 会递归地将它全部属性转为 getter/setter，从而让它能响应数据变化。<strong>这个对象必须是普通对象</strong>：原生对象，getter/setter 及原型属性会被忽略。不推荐观察复杂对象。</p>
 <p>在实例创建之后，可以用 <code>vm.$data</code> 访问原始数据对象。Vue 实例也代理了数据对象所有的属性。</p>
+<p>在定义<strong>组件</strong>时，同一定义将创建多个实例，此时 <code>data</code> 必须是一个函数，返回原始数据对象。如果 <code>data</code> 仍然是一个普通对象，则所有的实例将指向同一个对象！换成函数后，每当创建一个实例时，会调用这个函数，返回一个新的原始数据对象的副本。</p>
 <p>名字以 <code>_</code> 或 <code>$</code>开始的属性<strong>不会</strong>被 Vue 实例代理，因为它们可能与 Vue 的内置属性与 API 方法冲突。用 <code>vm.$data._property</code> 访问它们。</p>
 <p>可以通过将 <code>vm.$data</code> 传入 <code>JSON.parse(JSON.stringify(...))</code> 得到原始数据对象。</p>
 </li>
@@ -422,7 +448,7 @@
 <h2 id="选项_/_DOM">选项 / DOM</h2><h3 id="el">el</h3><ul>
 <li><p><strong>类型：</strong> <code>String | HTMLElement | Function</code></p>
 </li>
-<li><p><strong>限制：</strong> <code>Vue.extend()</code> 内只能是函数</p>
+<li><p><strong>限制：</strong> 在组件定义中只能是函数。</p>
 </li>
 <li><p><strong>详细：</strong></p>
 <p>为实例提供挂载元素。值可以是 CSS 选择符，或实际 HTML 元素，或返回 HTML 元素的函数。注意元素只用作挂载点。如果提供了模板则元素被替换，除非 <code>replace</code> 为 false。元素可以用 <code>vm.$el</code> 访问。</p>
@@ -449,7 +475,7 @@
 </li>
 </ul>
 <h3 id="replace">replace</h3><ul>
-<li><p><strong>类型：</strong> <code>Boolean</code>  </p>
+<li><p><strong>类型：</strong> <code>Boolean</code></p>
 </li>
 <li><p><strong>默认值：</strong> <code>true</code></p>
 </li>
@@ -470,7 +496,16 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"insert"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>inserted<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="选项_/_生命周期钩子">选项 / 生命周期钩子</h2><h3 id="created">created</h3><ul>
+<h2 id="选项_/_生命周期钩子">选项 / 生命周期钩子</h2><h3 id="init">init</h3><ul>
+<li><p><strong>类型:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>详细:</strong></p>
+<p>在实例开始初始化时同步调用。此时数据观测、事件和 watcher 都尚未初始化。</p>
+</li>
+<li><p><strong>另见:</strong> <a href="/guide/instance.html#生命周期图示">生命周期图示</a></p>
+</li>
+</ul>
+<h3 id="created">created</h3><ul>
 <li><p><strong>类型：</strong> <code>Function</code></p>
 </li>
 <li><p><strong>详细：</strong></p>
@@ -618,7 +653,7 @@
 <li><p><strong>类型：</strong> <code>Vue 实例</code></p>
 </li>
 <li><p><strong>详细：</strong></p>
-<p>指定实例的父实例，在两者之间建立父子关系。子实例可以用 <code>this.$parent</code> 访问父实例，子实例被推入父实例的 <code>$children</code> 数组中。 </p>
+<p>指定实例的父实例，在两者之间建立父子关系。子实例可以用 <code>this.$parent</code> 访问父实例，子实例被推入父实例的 <code>$children</code> 数组中。</p>
 </li>
 <li><p><strong>另见：</strong> <a href="/guide/components.html#父子组件通信">父子组件通信</a></p>
 </li>
@@ -744,10 +779,12 @@
 <li><p><strong>另见：</strong> <a href="#v-el">v-el</a>。</p>
 </li>
 </ul>
-<h2 id="实例方法_/_数据">实例方法 / 数据</h2><h3 id="vm-$watch(_expOrFn,_callback,_[options]_)">vm.$watch( expOrFn, callback, [options] )</h3><ul>
+<h2 id="实例方法_/_数据">实例方法 / 数据</h2><h3 id="vm-watch">vm.$watch( expOrFn, callback, [options] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
-<li><code>{String|Function} expOrFn</code></li>
+<li><code>{String | Function} expOrFn</code></li>
 <li><code>{Function} callback</code></li>
 <li><code>{Object} [options]</code><ul>
 <li><code>{Boolean} deep</code></li>
@@ -780,7 +817,9 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$watch(<span class="string">'a'</span>, callback, &#123;</span><br><span class="line">  immediate: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 立即以 `a` 的当前值触发回调</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="vm-$get(_expression_)">vm.$get( expression )</h3><ul>
+<h3 id="vm-get">vm.$get( expression )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} expression</code></li>
@@ -793,7 +832,9 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: &#123;</span><br><span class="line">      b: <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">vm.$get(<span class="string">'a.b'</span>) <span class="comment">// -&gt; 1</span></span><br><span class="line">vm.$get(<span class="string">'a.b + 1'</span>) <span class="comment">// -&gt; 2</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="vm-$set(_keypath,_value_)">vm.$set( keypath, value )</h3><ul>
+<h3 id="vm-set">vm.$set( keypath, value )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} keypath</code></li>
@@ -816,7 +857,9 @@
 <li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应</a></p>
 </li>
 </ul>
-<h3 id="vm-$delete(_key_)">vm.$delete( key )</h3><ul>
+<h3 id="vm-delete">vm.$delete( key )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} key</code></li>
@@ -826,7 +869,9 @@
 <p>删除 Vue 实例（以及它的 <code>$data</code>）上的顶级属性。强制 digest 循环，不推荐使用。</p>
 </li>
 </ul>
-<h3 id="vm-$eval(_expression_)">vm.$eval( expression )</h3><ul>
+<h3 id="vm-eval">vm.$eval( expression )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} expression</code></li>
@@ -839,7 +884,9 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 假定 vm.msg = 'hello'</span></span><br><span class="line">vm.$<span class="built_in">eval</span>(<span class="string">'msg | uppercase'</span>) <span class="comment">// -&gt; 'HELLO'</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="vm-$interpolate(_templateString_)">vm.$interpolate( templateString )</h3><ul>
+<h3 id="vm-interpolate">vm.$interpolate( templateString )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} templateString</code></li>
@@ -852,7 +899,9 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 假定 vm.msg = 'hello'</span></span><br><span class="line">vm.$interpolate(<span class="string">'&#123;&#123;msg&#125;&#125; world!'</span>) <span class="comment">// -&gt; 'hello world!'</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="vm-$log(_[keypath]_)">vm.$log( [keypath] )</h3><ul>
+<h3 id="vm-log">vm.$log( [keypath] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} [keypath]</code></li>
@@ -863,7 +912,9 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$log() <span class="comment">// 打印整个 ViewModel 的数据</span></span><br><span class="line">vm.$log(<span class="string">'item'</span>) <span class="comment">// 打印 vm.item</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="实例属性_/_事件">实例属性 / 事件</h2><h3 id="vm-$on(_event,_callback_)">vm.$on( event, callback )</h3><ul>
+<h2 id="实例属性_/_事件">实例属性 / 事件</h2><h3 id="vm-on">vm.$on( event, callback )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} event</code></li>
@@ -877,7 +928,9 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$on(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(msg)</span><br><span class="line">&#125;)</span><br><span class="line">vm.$emit(<span class="string">'test'</span>, <span class="string">'hi'</span>)</span><br><span class="line"><span class="comment">// -&gt; "hi"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="vm-$once(_event,_callback_)">vm.$once( event, callback )</h3><ul>
+<h3 id="vm-once">vm.$once( event, callback )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} event</code></li>
@@ -888,7 +941,9 @@
 <p>监听一个自定义事件，但是只触发一次，在第一次触发之后删除监听器。</p>
 </li>
 </ul>
-<h3 id="vm-$off(_[event,_callback]_)">vm.$off( [event, callback] )</h3><ul>
+<h3 id="vm-off">vm.$off( [event, callback] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} [event]</code></li>
@@ -907,7 +962,9 @@
 </ul>
 </li>
 </ul>
-<h3 id="vm-$emit(_event,_[…args]_)">vm.$emit( event, […args] )</h3><ul>
+<h3 id="vm-emit">vm.$emit( event, […args] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} event</code></li>
@@ -916,7 +973,9 @@
 <p>触发当前实例上的事件。附加参数都会传给监听器回调。</p>
 </li>
 </ul>
-<h3 id="vm-$dispatch(_event,_[…args]_)">vm.$dispatch( event, […args] )</h3><ul>
+<h3 id="vm-dispatch">vm.$dispatch( event, […args] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} event</code></li>
@@ -932,7 +991,9 @@
 <li><p><strong>另见：</strong> <a href="/guide/components.html#父子组件通信">父子组件通信</a></p>
 </li>
 </ul>
-<h3 id="vm-$broadcast(_event,_[…args]_)">vm.$broadcast( event, […args] )</h3><ul>
+<h3 id="vm-broadcast">vm.$broadcast( event, […args] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{String} event</code></li>
@@ -946,10 +1007,12 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Vue()</span><br><span class="line"><span class="comment">// child1 和 child2 是兄弟</span></span><br><span class="line"><span class="keyword">var</span> child1 = <span class="keyword">new</span> Vue(&#123; parent: parent &#125;)</span><br><span class="line"><span class="keyword">var</span> child2 = <span class="keyword">new</span> Vue(&#123; parent: parent &#125;)</span><br><span class="line"><span class="comment">// child3 在 child2 内</span></span><br><span class="line"><span class="keyword">var</span> child3 = <span class="keyword">new</span> Vue(&#123; parent: child2 &#125;)</span><br><span class="line"></span><br><span class="line">child1.$on(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'child1 notified'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">child2.$on(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'child2 notified'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">child3.$on(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'child3 notified'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">parent.$broadcast(<span class="string">'test'</span>)</span><br><span class="line"><span class="comment">// -&gt; "child1 notified"</span></span><br><span class="line"><span class="comment">// -&gt; "child2 notified"</span></span><br><span class="line"><span class="comment">// 没有通知 child3，因为 child2 的回调没有返回 true</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="实例方法_/_DOM">实例方法 / DOM</h2><h3 id="vm-$appendTo(_elementOrSelector,_[callback]_)">vm.$appendTo( elementOrSelector, [callback] )</h3><ul>
+<h2 id="实例方法_/_DOM">实例方法 / DOM</h2><h3 id="vm-appendTo">vm.$appendTo( elementOrSelector, [callback] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
-<li><code>{Element|String} elementOrSelector</code></li>
+<li><code>{Element | String} elementOrSelector</code></li>
 <li><code>{Function} [callback]</code></li>
 </ul>
 </li>
@@ -959,10 +1022,12 @@
 <p>将实例的 DOM 元素或片断插入目标元素内。第一个参数可以是一个元素或选择器字符串。如果有过渡则触发过渡。回调在过渡完成后执行，如果没有触发过渡则立即执行。</p>
 </li>
 </ul>
-<h3 id="vm-$before(_elementOrSelector,_[callback]_)">vm.$before( elementOrSelector, [callback] )</h3><ul>
+<h3 id="vm-before">vm.$before( elementOrSelector, [callback] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
-<li><code>{Element|String} elementOrSelector</code></li>
+<li><code>{Element | String} elementOrSelector</code></li>
 <li><code>{Function} [callback]</code></li>
 </ul>
 </li>
@@ -972,10 +1037,12 @@
 <p>将实例的 DOM 元素或片断插到目标元素的前面。第一个参数可以是一个元素或选择器字符串。如果有过渡则触发过渡。回调在过渡完成后执行，如果没有触发过渡则立即执行。</p>
 </li>
 </ul>
-<h3 id="vm-$after(_elementOrSelector,_[callback]_)">vm.$after( elementOrSelector, [callback] )</h3><ul>
+<h3 id="vm-after">vm.$after( elementOrSelector, [callback] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
-<li><code>{Element|String} elementOrSelector</code></li>
+<li><code>{Element | String} elementOrSelector</code></li>
 <li><code>{Function} [callback]</code></li>
 </ul>
 </li>
@@ -985,7 +1052,9 @@
 <p>将实例的 DOM 元素或片断插到目标元素的后面。第一个参数可以是一个元素或选择器字符串。如果有过渡则触发过渡。回调在过渡完成后执行，如果没有触发过渡则立即执行。</p>
 </li>
 </ul>
-<h3 id="vm-$remove(_[callback]_)">vm.$remove( [callback] )</h3><ul>
+<h3 id="vm-remove">vm.$remove( [callback] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{Function} [callback]</code></li>
@@ -997,7 +1066,9 @@
 <p>从 DOM 中删除实例的 DOM 元素或片断。如果有过渡则触发过渡。回调在过渡完成后执行，如果没有触发过渡则立即执行。</p>
 </li>
 </ul>
-<h3 id="vm-$nextTick(_callback_)">vm.$nextTick( callback )</h3><ul>
+<h3 id="vm-nextTick">vm.$nextTick( callback )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{Function} [callback]</code></li>
@@ -1016,10 +1087,12 @@
 </ul>
 </li>
 </ul>
-<h2 id="实例方法_/_生命周期">实例方法 / 生命周期</h2><h3 id="vm-$mount(_[elementOrSelector]_)">vm.$mount( [elementOrSelector] )</h3><ul>
+<h2 id="实例方法_/_生命周期">实例方法 / 生命周期</h2><h3 id="vm-mount">vm.$mount( [elementOrSelector] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
-<li><code>{Element|String} [elementOrSelector]</code></li>
+<li><code>{Element | String} [elementOrSelector]</code></li>
 </ul>
 </li>
 <li><p><strong>返回值：</strong> <code>vm</code>——实例自身</p>
@@ -1037,7 +1110,9 @@
 <li><p><strong>另见：</strong> <a href="/guide/instance.html#生命周期图示">生命周期图示</a></p>
 </li>
 </ul>
-<h3 id="vm-$destroy(_[remove]_)">vm.$destroy( [remove] )</h3><ul>
+<h3 id="vm-destroy">vm.$destroy( [remove] )</h3>
+
+<ul>
 <li><p><strong>参数：</strong></p>
 <ul>
 <li><code>{Boolean} [remove] - default: false</code></li>
@@ -1134,6 +1209,8 @@
 <ul>
 <li><code>.stop</code> - 调用 <code>event.stopPropagation()</code>。</li>
 <li><code>.prevent</code> - 调用 <code>event.preventDefault()</code>。</li>
+<li><code>.capture</code> - 添加事件侦听器时使用 capture 模式。</li>
+<li><code>.self</code> - 只当事件是从侦听器绑定的元素本身触发时才触发回调。</li>
 <li><code>.{keyCode | keyAlias}</code> - 只在指定按键上触发回调。</li>
 </ul>
 </li>
@@ -1164,6 +1241,7 @@
 <ul>
 <li><code>.sync</code> - 双向绑定，只能用于 prop 绑定。</li>
 <li><code>.once</code> - 单次绑定，只能用于 prop 绑定。</li>
+<li><code>.camel</code> - 将绑定的特性名字转回驼峰命名。只能用于普通 HTML 特性的绑定，通常用于绑定用驼峰命名的 SVG 特性，比如 <code>viewBox</code>。</li>
 </ul>
 </li>
 <li><p><strong>用法：</strong></p>
@@ -1271,6 +1349,8 @@
 <li><p><strong>特性：</strong></p>
 <ul>
 <li><code>is</code></li>
+<li><a href="/guide/components.html#keep-alive"><code>keep-alive</code></a></li>
+<li><a href="/guide/components.html#transition-mode"><code>transition-mode</code></a></li>
 </ul>
 </li>
 <li><p><strong>用法：</strong></p>
@@ -1505,6 +1585,7 @@
 
                 
             </div>
+            <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
             <script src="/js/smooth-scroll.min.js"></script>
             <script src="/js/common.js"></script>
         
@@ -1515,5 +1596,12 @@
                 FastClick.attach(document.body);
             }, false);
         </script>
+
+        <!-- 打赏 -->
+        <div id="qrcode" class="hidden">
+            <h2>微信扫一扫，支持 Vue.js :)</h2>
+            <img src="/images/qrcode.png">
+        </div>
+        <script src="/js/money.js"></script>
     </body>
 </html>
