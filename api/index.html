@@ -171,16 +171,6 @@
 <p>如果关闭了异步模式，Vue 在检测到数据变化时同步更新 DOM。在有些情况下这有助于调试，但是也可能导致性能下降，并且影响 watcher 回调的调用顺序。<strong><code>async: false</code>不推荐用在生产环境中。</strong></p>
 </li>
 </ul>
-<h3 id="convertAllProperties">convertAllProperties</h3><ul>
-<li><p><strong>类型：</strong> <code>Boolean</code></p>
-</li>
-<li><p><strong>默认值：</strong> <code>false</code></p>
-</li>
-<li><p><strong>用法：</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.config.convertAllProperties = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>1.0.8 添加。开启这个选项后，Vue 可以转换和观察由  <code>Object.defineProperty</code> 定义的 getters/setter。默认关闭，因为会付出一些性能代价，并且不是常用功能。</p>
-</li>
-</ul>
 <h2 id="全局_API">全局 API</h2><h3 id="Vue-extend">Vue.extend( options )</h3>
 
 <ul>
@@ -1190,8 +1180,9 @@
 </ul>
 </li>
 <li><p><strong>用法：</strong></p>
-<p>基于源数据将元素或模板块重复数次。表达式必须使用特定语法，为当前遍历的元素提供别名：</p>
+<p>基于源数据将元素或模板块重复数次。指令的值必须使用特定语法 <code>alias (in|of) expression</code>，为当前遍历的元素提供别名：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">v-for</span>=<span class="value">"item in items"</span>&gt;</span></span><br><span class="line">  &#123;&#123; item.text &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>1.0.17+ 支持 <code>of</code> 分隔符。</p>
 <p>另外也可以为数组索引指定别名（如果值是对象可以为键指定别名）：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">v-for</span>=<span class="value">"(index, item) in items"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">v-for</span>=<span class="value">"(key, val) in object"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>

@@ -317,7 +317,7 @@ new Vue({
 </li>
 </ul>
 <p>另外，如果在它的进入过渡还在进行中时删除元素，将调用 <code>enterCancelled</code> 钩子，以清理变动或 <code>enter</code> 创建的计时器。反过来对于离开过渡亦如是。</p>
-<p>上面所有的钩子函数在调用时，它们的 <code>this</code> 均指向所属的 Vue 实例。如果元素是 Vue 实例的根节点，则这个实例是上下文。否则，上下文是过渡指令所属的实例。</p>
+<p>上面所有的钩子函数在调用时，它们的 <code>this</code> 均指向其所属的 Vue 实例。编译规则：过渡在哪个上下文中编译，它的 <code>this</code> 就指向哪个上下文。</p>
 <p>最后，<code>enter</code> 和 <code>leave</code> 可以有第二个可选的回调参数，用于显式控制过渡如何结束。因此不必等待 CSS <code>transitionend</code> 事件， Vue.js 将等待你手工调用这个回调，以结束过渡。例如：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">enter: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 没有第二个参数</span></span><br><span class="line">  <span class="comment">// 由 CSS transitionend 事件决定过渡何时结束</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>vs.</p>
