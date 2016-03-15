@@ -6,8 +6,8 @@
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
-        <!-- <link href='http://fonts.googleapis.com/css?family=Dosis:300,500&text=Vue.js' rel='stylesheet' type='text/css'> -->
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:300,500&text=Vue.js' rel='stylesheet' type='text/css'>
         <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
@@ -297,7 +297,7 @@
 </li>
 <li><p><strong>用法：</strong></p>
 <p>注册或获取全局组件。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注册，传入一个扩展的构造器</span></span><br><span class="line">Vue.component(<span class="string">'my-component'</span>, Vue.extend(&#123; <span class="comment">/* ... */</span>&#125;))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册，传入一个选项对象（自动调用 Vue.extend）</span></span><br><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取注册的组件（始终返回构造器）</span></span><br><span class="line"><span class="keyword">var</span> MyComponent = Vue.component(<span class="string">'my-component'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注册组件，传入一个扩展的构造器</span></span><br><span class="line">Vue.component(<span class="string">'my-component'</span>, Vue.extend(&#123; <span class="comment">/* ... */</span>&#125;))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册组件，传入一个选项对象（自动调用 Vue.extend）</span></span><br><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取注册的组件（始终返回构造器）</span></span><br><span class="line"><span class="keyword">var</span> MyComponent = Vue.component(<span class="string">'my-component'</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>另见：</strong> <a href="/guide/components.html">组件</a>.</p>
 </li>
@@ -1581,7 +1581,7 @@
             <script src="/js/common.js"></script>
         
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 FastClick.attach(document.body);
