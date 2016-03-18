@@ -86,6 +86,12 @@
 
     </ul>
     <div class="list">
+        <div id="donate" style="margin-bottom: 20px">
+            <span class="wrapper" style="width: 110px">
+              <img src="/images/patreon.png">
+              <a href="/support-vuejs">支持 Vue.js</a>
+            </span>
+        </div>
         <h2>
 			
 			API
@@ -97,12 +103,12 @@
         <ul class="menu-root">
             
         </ul>
-        <div id="donate">
+<!--         <div id="donate">
             <span class="wrapper" style="width: 72px">
               <img src="/images/weixinpay.png">
               <a>打个赏</a>
             </span>
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -169,6 +175,16 @@
 <li><p><strong>用法：</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.config.async = <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 <p>如果关闭了异步模式，Vue 在检测到数据变化时同步更新 DOM。在有些情况下这有助于调试，但是也可能导致性能下降，并且影响 watcher 回调的调用顺序。<strong><code>async: false</code>不推荐用在生产环境中。</strong></p>
+</li>
+</ul>
+<h3 id="devtools">devtools</h3><ul>
+<li><p><strong>类型：</strong> <code>Boolean</code></p>
+</li>
+<li><p><strong>默认值：</strong> <code>true</code> (生产版为 <code>false</code>)</p>
+</li>
+<li><p><strong>用法：</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.config.devtools = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>配置是否允许 <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">vue-devtools</a> 检查代码。开发版默认为 <code>true</code>， 生产版默认为 <code>false</code>。 生产版设为 <code>true</code> 可以启用检查。</p>
 </li>
 </ul>
 <h2 id="全局_API">全局 API</h2><h3 id="Vue-extend">Vue.extend( options )</h3>
@@ -1587,12 +1603,5 @@
                 FastClick.attach(document.body);
             }, false);
         </script>
-
-        <!-- 打赏 -->
-        <div id="qrcode" class="hidden">
-            <h2>微信扫一扫，支持 Vue.js :)</h2>
-            <img src="/images/qrcode.png">
-        </div>
-        <script src="/js/money.js"></script>
     </body>
 </html>

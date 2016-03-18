@@ -691,6 +691,7 @@ body {
   #social {
     max-width: 340px;
     margin: 1.2em auto;
+    line-height: 1.8em;
   }
   .cool {
     margin-top: 0;
