@@ -194,10 +194,14 @@
 
 
 <div class="content guide with-sidebar">
+    <div id="ad" style="width:140px">
+    <a href="https://strikingly.com/s/careers?utm_source=v" target="_blank">
+        <span>Proudly sponsored by</span><br>
+    <img src="/images/strikingly.png">
+  </a>
+</div>
+
     <h1>表单控件绑定</h1>
-    <div id="ad">
-        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
-    </div>
     <h2 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h2><p>可以用 <code>v-model</code> 指令在表单控件元素上创建双向数据绑定。根据控件类型它自动选取正确的方法更新元素。尽管有点神奇，<code>v-model</code> 不过是语法糖，在用户输入事件中更新数据，以及特别处理一些极端例子。</p>
 <h3 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Message is: &#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"message"</span> <span class="attr">placeholder</span>=<span class="string">"edit me"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 

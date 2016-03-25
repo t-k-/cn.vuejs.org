@@ -194,10 +194,14 @@
 
 
 <div class="content guide with-sidebar">
+    <div id="ad" style="width:140px">
+    <a href="https://strikingly.com/s/careers?utm_source=v" target="_blank">
+        <span>Proudly sponsored by</span><br>
+    <img src="/images/strikingly.png">
+  </a>
+</div>
+
     <h1>条件渲染</h1>
-    <div id="ad">
-        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
-    </div>
     <h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h2><p>在字符串模板中，如 Handlebars，我们得像这样写一个条件块：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Handlebars 模板 --&gt;</span></span><br><span class="line">&#123;&#123;#if ok&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Yes<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">&#123;&#123;/if&#125;&#125;</span><br></pre></td></tr></table></figure>
 <p>在 Vue.js，我们使用 <code>v-if</code> 指令实现同样的功能：</p>

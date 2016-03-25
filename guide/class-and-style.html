@@ -194,10 +194,14 @@
 
 
 <div class="content guide with-sidebar">
+    <div id="ad" style="width:140px">
+    <a href="https://strikingly.com/s/careers?utm_source=v" target="_blank">
+        <span>Proudly sponsored by</span><br>
+    <img src="/images/strikingly.png">
+  </a>
+</div>
+
     <h1>Class 与 Style 绑定</h1>
-    <div id="ad">
-        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
-    </div>
     <p>数据绑定一个常见需求是操作元素的 class 列表和它的内联样式。因为它们都是属性，我们可以用 <code>v-bind</code> 处理它们：我们只需要计算出表达式最终的字符串。不过，字符串拼接麻烦又易错。因此，在<code>v-bind</code> 用于 <code>class</code> 和 <code>style</code> 时，Vue.js 专门增强了它。表达式的结果类型除了字符串之外，还可以是对象或数组。</p>
 <h2 id="绑定-HTML-Class"><a href="#绑定-HTML-Class" class="headerlink" title="绑定 HTML Class"></a>绑定 HTML Class</h2><p class="tip">尽管可以用 Mustache 标签绑定 class，比如 <code>class="{{ className }}"</code>，但是我们不推荐这种写法和 <code>v-bind:class</code> 混用。两者只能选其一！</p>
 
