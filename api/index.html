@@ -187,7 +187,7 @@
 <li><p><strong>默认值：</strong> <code>true</code> (生产版为 <code>false</code>)</p>
 </li>
 <li><p><strong>用法：</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.config.devtools = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在加载 Vue 之后立即同步的设置</span></span><br><span class="line">Vue.config.devtools = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>配置是否允许 <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">vue-devtools</a> 检查代码。开发版默认为 <code>true</code>， 生产版默认为 <code>false</code>。 生产版设为 <code>true</code> 可以启用检查。</p>
 </li>
 </ul>
@@ -1582,6 +1582,34 @@
   })
   </script>
   
+</li>
+</ul>
+<h2 id="数组扩展方法"><a href="#数组扩展方法" class="headerlink" title="数组扩展方法"></a>数组扩展方法</h2><p>Vue.js 在 <code>Array.prototype</code> 上添加了两个方法，以方便常见的数组操作，并且能触发视图更新。</p>
+<h3 id="array-set-index-value"><a href="#array-set-index-value" class="headerlink" title="array.$set(index, value)"></a>array.$set(index, value)</h3><ul>
+<li><p><strong>参数：</strong></p>
+<ul>
+<li><code>{Number} index</code></li>
+<li><code>{*} value</code></li>
+</ul>
+</li>
+<li><p><strong>用法：</strong></p>
+<p>通过索引设置数组元素并触发视图更新。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.animals.$set(<span class="number">0</span>, &#123; name: <span class="string">'Aardvark'</span> &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>另见：</strong> <a href="/guide/list.html#问题">数组检测问题</a></p>
+</li>
+</ul>
+<h3 id="array-remove-reference"><a href="#array-remove-reference" class="headerlink" title="array.$remove(reference)"></a>array.$remove(reference)</h3><ul>
+<li><p><strong>参数：</strong></p>
+<ul>
+<li><code>{Reference} reference</code></li>
+</ul>
+</li>
+<li><p><strong>用法：</strong></p>
+<p>通过索引删除数组元素并触发视图更新。这个方法先在数组中搜索这个元素，如果找到了则调用 <code>array.splice(index, 1)</code>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> aardvark = vm.animals[<span class="number">0</span>]</span><br><span class="line">vm.animals.$remove(aardvark)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>另见：</strong> <a href="/guide/list.html#变异方法">变异方法</a></p>
 </li>
 </ul>
 
