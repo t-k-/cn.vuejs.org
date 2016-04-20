@@ -252,6 +252,7 @@ a.button:hover {
   line-height: 1.8em;
   margin: 0;
   display: block;
+  white-space: nowrap;
 }
 #nav .nav-dropdown a {
   color: #7f8c8d;

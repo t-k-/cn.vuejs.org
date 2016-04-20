@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
     <head>
-        <title>Vue 实例 - vue.js</title>
+        <title>加入 Vue 社区！ - vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -115,7 +115,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/instance.html" class="sidebar-link current">Vue 实例</a>
+                    <a href="/guide/instance.html" class="sidebar-link">Vue 实例</a>
                 </li>
             
                 <li>
@@ -183,7 +183,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/join.html" class="sidebar-link">加入 Vue 社区！</a>
+                    <a href="/guide/join.html" class="sidebar-link current">加入 Vue 社区！</a>
                 </li>
             
         </ul>
@@ -205,39 +205,43 @@
   </a>
 </div>
 
-    <h1>Vue 实例</h1>
-    <h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><p>每个 Vue.js 应用的起步都是通过构造函数 <code>Vue</code> 创建一个 <strong>Vue 的根实例</strong>：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="comment">// 选项</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>一个 Vue 实例其实正是一个 <a href="https://en.wikipedia.org/wiki/Model_View_ViewModel" target="_blank" rel="external">MVVM 模式</a>中所描述的 ViewModel - 因此在文档中经常会使用 <code>vm</code> 这个变量名。</p>
-<p>在实例化 Vue 时，需要传入一个<strong>选项对象</strong>，它可以包含数据、模板、挂载元素、方法、生命周期钩子等选项。全部的选项可以在 API 文档中查看。</p>
-<p>可以扩展 <code>Vue</code> 构造器，从而用预定义选项创建可复用的<strong>组件构造器</strong>：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> MyComponent = Vue.extend(&#123;</span><br><span class="line">  <span class="comment">// 扩展选项</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 所有的 `MyComponent` 实例都将以预定义的扩展选项被创建</span></span><br><span class="line"><span class="keyword">var</span> myComponentInstance = <span class="keyword">new</span> MyComponent()</span><br></pre></td></tr></table></figure>
-<p>尽管可以命令式地创建扩展实例，不过在多数情况下将组件构造器注册为一个自定义元素，然后声明式地用在模板中。我们将在后面详细说明组件系统。现在你只需知道所有的 Vue.js 组件其实都是被扩展的 Vue 实例。</p>
-<h2 id="属性与方法"><a href="#属性与方法" class="headerlink" title="属性与方法"></a>属性与方法</h2><p>每个 Vue 实例都会<strong>代理</strong>其 <code>data</code> 对象里所有的属性：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123; a: <span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: data</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">vm.a === data.a <span class="comment">// -&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置属性也会影响到原始数据</span></span><br><span class="line">vm.a = <span class="number">2</span></span><br><span class="line">data.a <span class="comment">// -&gt; 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ... 反之亦然</span></span><br><span class="line">data.a = <span class="number">3</span></span><br><span class="line">vm.a <span class="comment">// -&gt; 3</span></span><br></pre></td></tr></table></figure>
-<p>注意只有这些被代理的属性是<strong>响应的</strong>。如果在实例创建之后添加新的属性到实例上，它不会触发视图更新。我们将在后面详细讨论响应系统。</p>
-<p>除了这些数据属性，Vue 实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀 <code>$</code>，以便与代理的数据属性区分。例如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123; a: <span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example'</span>,</span><br><span class="line">  data: data</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">vm.$data === data <span class="comment">// -&gt; true</span></span><br><span class="line">vm.$el === <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>) <span class="comment">// -&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// $watch 是一个实例方法</span></span><br><span class="line">vm.$watch(<span class="string">'a'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">newVal, oldVal</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 这个回调将在 `vm.a`  改变后调用</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>参考 <a href="/api">API 文档</a>查看全部的实例属性与方法。</p>
-<h2 id="实例生命周期"><a href="#实例生命周期" class="headerlink" title="实例生命周期"></a>实例生命周期</h2><p>Vue 实例在创建时有一系列初始化步骤——例如，它需要建立数据观察，编译模板，创建必要的数据绑定。在此过程中，它也将调用一些<strong>生命周期钩子</strong>，给自定义逻辑提供运行机会。例如 <code>created</code>  钩子在实例创建后调用：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// `this` 指向 vm 实例</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'a is: '</span> + <span class="keyword">this</span>.a)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// -&gt; "a is: 1"</span></span><br></pre></td></tr></table></figure>
-<p>也有一些其它的钩子，在实例生命周期的不同阶段调用，如 <code>compiled</code>、 <code>ready</code> 、<code>destroyed</code>。钩子的 <code>this</code> 指向调用它的 Vue 实例。一些用户可能会问 Vue.js 是否有“控制器”的概念？答案是，没有。组件的自定义逻辑可以分割在这些钩子中。</p>
-<h2 id="生命周期图示"><a href="#生命周期图示" class="headerlink" title="生命周期图示"></a>生命周期图示</h2><p>下图说明了实例的生命周期。你不需要立马弄明白所有的东西，不过以后它会有帮助。</p>
-<p><img src="/images/lifecycle.png" alt="Lifecycle"></p>
+    <h1>加入 Vue 社区！</h1>
+    <h2 id="加入-Vue-社区！"><a href="#加入-Vue-社区！" class="headerlink" title="加入 Vue 社区！"></a>加入 Vue 社区！</h2><p>Vue.js 的社区在持续增长中，欢迎为社区提供一臂之力。事实上，一个增长的社区是这个开源项目是否健康、是否值得投入的最重要的一个标志。</p>
+<p>如果你也想成为社区的一员，此页正是为你提供帮助的。看看下文了解 Vue.js 这艘船的航向等等。</p>
+<p>欢迎上船！</p>
+<h2 id="你应知道的！"><a href="#你应知道的！" class="headerlink" title="你应知道的！"></a>你应知道的！</h2><h3 id="社区"><a href="#社区" class="headerlink" title="社区"></a>社区</h3><ul>
+<li><a href="http://forum.vuejs.org/" target="_blank" rel="external">论坛</a> - 提问答疑的最好地方。</li>
+<li><a href="https://gitter.im/vuejs/vue" target="_blank" rel="external">Gitter</a> - 开发者聊天室。在这里你可以提问，不过最好在论坛提问，因为论坛有版块。</li>
+<li><a href="https://github.com/vuejs" target="_blank" rel="external">Github</a> - 报告问题，提交请求，为你所做的任何贡献表示深深感谢！</li>
+</ul>
+<h3 id="第三方资源"><a href="#第三方资源" class="headerlink" title="第三方资源"></a>第三方资源</h3><ul>
+<li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="external">Awesome Vue</a> - 看看其他牛人发布的好资源。</li>
+<li><a href="http://forum.vuejs.org/category/15/show-tell" target="_blank" rel="external">“Show and Tell” 子论坛</a> - 另一个好地方，看看他人的作品。</li>
+</ul>
+<h3 id="参与-Vue-开发"><a href="#参与-Vue-开发" class="headerlink" title="参与 Vue 开发"></a>参与 Vue 开发</h3><ul>
+<li><p><a href="https://github.com/vuejs/vue/blob/dev/CONTRIBUTING.md" target="_blank" rel="external">参与规则</a> - 和其它社区一样，我们有规矩，这是为了让合适的人做合适的事。</p>
+</li>
+<li><p>Vue 的主要组件</p>
+<ul>
+<li><a href="https://github.com/vuejs/vue" target="_blank" rel="external">Vue</a> - 核心库。</li>
+<li><a href="https://github.com/vuejs/vuex" target="_blank" rel="external">Vuex</a> - 类 Flux 的应用架构。</li>
+<li><a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">Vue-router</a> - 单页面应用路由。</li>
+<li><a href="https://github.com/vuejs/vue-resource" target="_blank" rel="external">Vue-resource</a> - 网络请求插件，使用 XMLHttpRequests 或 JSONP 处理响应。</li>
+</ul>
+</li>
+</ul>
 
     
       <div class="guide-links">
         
-          <span>← <a href="/guide/overview.html">概述</a></span>
+          <span>← <a href="/guide/comparison.html">对比其它框架</a></span>
         
-        
-          <span style="float:right"><a href="/guide/syntax.html">数据绑定语法</a> →</span>
         
       </div>
     
     <div class="footer">
       发现错误？想参与编辑？
-      <a href="https://github.com/vuejs/cn.vuejs.org/blob/master/src/guide/instance.md" target="_blank">
+      <a href="https://github.com/vuejs/cn.vuejs.org/blob/master/src/guide/join.md" target="_blank">
         在 Github 上编辑此页！
       </a>
     </div>
