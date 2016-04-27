@@ -319,7 +319,7 @@
 <p>注册或获取全局组件。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注册组件，传入一个扩展的构造器</span></span><br><span class="line">Vue.component(<span class="string">'my-component'</span>, Vue.extend(&#123; <span class="comment">/* ... */</span>&#125;))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册组件，传入一个选项对象（自动调用 Vue.extend）</span></span><br><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取注册的组件（始终返回构造器）</span></span><br><span class="line"><span class="keyword">var</span> MyComponent = Vue.component(<span class="string">'my-component'</span>)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>另见：</strong> <a href="/guide/components.html">组件</a>.</p>
+<li><p><strong>另见：</strong> <a href="/guide/components.html">组件</a></p>
 </li>
 </ul>
 <h3 id="Vue-transition">Vue.transition( id, [hooks] )</h3>
@@ -335,7 +335,7 @@
 <p>注册或获取全局的过渡钩子对象。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注册</span></span><br><span class="line">Vue.transition(<span class="string">'fade'</span>, &#123;</span><br><span class="line">  enter: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">  leave: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取注册的钩子</span></span><br><span class="line"><span class="keyword">var</span> fadeTransition = Vue.transition(<span class="string">'fade'</span>)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>另见：</strong> <a href="/guide/transitions.html">过渡</a>.</p>
+<li><p><strong>另见：</strong> <a href="/guide/transitions.html">过渡</a></p>
 </li>
 </ul>
 <h3 id="Vue-partial">Vue.partial( id, [partial] )</h3>
@@ -351,7 +351,7 @@
 <p>注册或获取全局的 partial。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注册</span></span><br><span class="line">Vue.partial(<span class="string">'my-partial'</span>, <span class="string">'&lt;div&gt;Hi&lt;/div&gt;'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取注册的 partial</span></span><br><span class="line"><span class="keyword">var</span> myPartial = Vue.partial(<span class="string">'my-partial'</span>)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>另见：</strong> <a href="#partial">特殊元素 - &lt;partial&gt;</a>。</p>
+<li><p><strong>另见：</strong> <a href="#partial">特殊元素 - &lt;partial&gt;</a></p>
 </li>
 </ul>
 <h3 id="Vue-use">Vue.use( plugin, [options] )</h3>
@@ -366,7 +366,7 @@
 <li><p><strong>用法：</strong></p>
 <p>安装 Vue.js 插件。如果插件是一个对象，必须有一个 <code>install</code> 方法。如果它是一个函数，它会被作为安装方法。安装方法以 Vue 为参数。</p>
 </li>
-<li><p><strong>另见：</strong> <a href="/guide/plugins.html">插件</a>.</p>
+<li><p><strong>另见：</strong> <a href="/guide/plugins.html">插件</a></p>
 </li>
 </ul>
 <h3 id="Vue-mixin">Vue.mixin( mixin )</h3>
@@ -400,7 +400,7 @@
 <li><p><strong>示例：</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123; a: <span class="number">1</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接创建一个实例</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: data</span><br><span class="line">&#125;)</span><br><span class="line">vm.a <span class="comment">// -&gt; 1</span></span><br><span class="line">vm.$data === data <span class="comment">// -&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 Vue.extend() 中必须是函数</span></span><br><span class="line"><span class="keyword">var</span> Component = Vue.extend(&#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; a: <span class="number">1</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应</a>.</p>
+<li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应</a></p>
 </li>
 </ul>
 <h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><ul>
