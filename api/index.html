@@ -240,7 +240,7 @@
 <li><p><strong>用法：</strong></p>
 <p>设置对象的属性。如果对象是响应的，将触发视图更新。这个方法主要用于解决 不能检测到属性添加的限制。</p>
 </li>
-<li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应</a></p>
+<li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应式原理</a></p>
 </li>
 </ul>
 <h3 id="Vue-delete">Vue.delete( object, key )</h3>
@@ -255,7 +255,7 @@
 <li><p><strong>用法：</strong></p>
 <p>删除对象的属性。如果对象是响应的，将触发视图更新。这个方法主要用于解决 不能检测到属性删除的限制。</p>
 </li>
-<li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应</a></p>
+<li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应式原理</a></p>
 </li>
 </ul>
 <h3 id="Vue-directive">Vue.directive( id, [definition] )</h3>
@@ -400,7 +400,7 @@
 <li><p><strong>示例：</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123; a: <span class="number">1</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接创建一个实例</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: data</span><br><span class="line">&#125;)</span><br><span class="line">vm.a <span class="comment">// -&gt; 1</span></span><br><span class="line">vm.$data === data <span class="comment">// -&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 Vue.extend() 中必须是函数</span></span><br><span class="line"><span class="keyword">var</span> Component = Vue.extend(&#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; a: <span class="number">1</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应</a></p>
+<li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应式原理</a></p>
 </li>
 </ul>
 <h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><ul>
@@ -427,7 +427,7 @@
 <li><p><strong>另见：</strong></p>
 <ul>
 <li><a href="/guide/computed.html">计算属性</a></li>
-<li><a href="/guide/reactivity.html#计算属性">深入响应：计算属性</a></li>
+<li><a href="/guide/reactivity.html#计算属性的奥秘">深入响应式原理：计算属性的奥秘</a></li>
 </ul>
 </li>
 </ul>
@@ -679,7 +679,7 @@
 </li>
 <li><p><strong>另见：</strong></p>
 <ul>
-<li><a href="#Instance_Methods_/_Events">实例方法 - 事件</a></li>
+<li><a href="#实例方法-事件">实例方法 - 事件</a></li>
 <li><a href="/guide/components.html#父子组件通信">父子组件通信</a></li>
 </ul>
 </li>
@@ -864,7 +864,7 @@
 <li><p><strong>示例：</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: &#123;</span><br><span class="line">      b: <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// keypath 存在</span></span><br><span class="line">vm.$set(<span class="string">'a.b'</span>, <span class="number">2</span>)</span><br><span class="line">vm.a.b <span class="comment">// -&gt; 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// keypath 不存在</span></span><br><span class="line">vm.$set(<span class="string">'c'</span>, <span class="number">3</span>)</span><br><span class="line">vm.c <span class="comment">// -&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应</a></p>
+<li><p><strong>另见：</strong> <a href="/guide/reactivity.html">深入响应式原理</a></p>
 </li>
 </ul>
 <h3 id="vm-delete">vm.$delete( key )</h3>
@@ -922,7 +922,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$log() <span class="comment">// 打印整个 ViewModel 的数据</span></span><br><span class="line">vm.$log(<span class="string">'item'</span>) <span class="comment">// 打印 vm.item</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="实例属性-事件"><a href="#实例属性-事件" class="headerlink" title="实例属性 / 事件"></a>实例属性 / 事件</h2><h3 id="vm-on">vm.$on( event, callback )</h3>
+<h2 id="实例方法-事件"><a href="#实例方法-事件" class="headerlink" title="实例方法 / 事件"></a>实例方法 / 事件</h2><h3 id="vm-on">vm.$on( event, callback )</h3>
 
 <ul>
 <li><p><strong>参数：</strong></p>
@@ -1379,7 +1379,7 @@
 </li>
 <li><p><strong>用法：</strong></p>
 <p><code>&lt;slot&gt;</code> 元素作为组件模板之中的内容分发插槽。这个元素自身将被替换。</p>
-<p>有 <code>name</code> 特性的 slot 称为命名 slot。 有 <code>slot</code> 特性的内容将分发到名字相匹配的命名 slot。</p>
+<p>有 <code>name</code> 特性的 slot 称为具名 slot。 有 <code>slot</code> 特性的内容将分发到名字相匹配的具名 slot。</p>
 </li>
 <li><p><strong>另见：</strong> <a href="/guide/components.html#使用-Slot-分发内容">使用 slot 分发内容</a></p>
 </li>
